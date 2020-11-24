@@ -25,31 +25,20 @@ const commandData = [
         "name": "warum",
         "description": "Begründung für meine Aktivitäten."
     },
-    {
-        "name": "experience",
-        "description": "The experience lists professional experience."
-    },
+   
     {
         "name": "remix",
         "description": "Link zum Quellcode dieses Projekts für Remix."
     },
+   
     {
-        "name": "uptime",
-        "description": "The uptime utility displays the current time, the" +
-            " length of time the system has been up, the number of users, and " +
-            "the load average of the system over the last 1, 5, and 15 minutes."
+        "name": "verlauf",
+        "description": "Zeigt alle Befehle an, die bisher eingegeben wurden."
     },
-    {
-        "name": "history",
-        "description": "The history utility lists all previous commands used within the current terminal session."
-    },
-    {
-        "name": "man",
-        "description": "The man utility is the command manual and provides a full list of system commands / descriptions."
-    },
+    
     {
         "name": "clear",
-        "description": "The clear utility clears all previous command output and resets the terminal session."
+        "description": "Startet die Session neu und löscht den Verlauf."
     },
     {
         "name": "kontakt",
@@ -61,76 +50,12 @@ const commandData = [
     }
 ]
 
-const skillsData = [
-    {
-        "name": "• YOUR SKILL HERE"
-    },
-    {
-        "name": "• YOUR SKILL HERE"
-    },
-    {
-        "name": "• YOUR SKILL HERE"
-    },
-    {
-        "name": "• YOUR SKILL HERE"
-    },
-    {
-        "name": "• YOUR SKILL HERE"
-    },
-    {
-        "name": "• YOUR SKILL HERE"
-    }
-]
 
-const experienceData = [
-    {
-        "title": "ROLE",
-        "company": "COMPANY NAME",
-        "duration": "FROM - TO",
-        "location": "LDN, UK"
-    },
-    {
-        "title": "ROLE",
-        "company": "COMPANY NAME",
-        "duration": "FROM - TO",
-        "location": "CBG, UK"
-    },
-    {
-        "title": "ROLE",
-        "company": "COMPANY NAME",
-        "duration": "FROM - TO",
-        "location": "CBG, UK"
-    },
-    {
-        "title": "ROLE",
-        "company": "COMPANY NAME",
-        "duration": "FROM - TO",
-        "location": "CBG, UK"
-    },
-    {
-        "title": "ROLE",
-        "company": "COMPANY NAME",
-        "duration": "FROM - TO",
-        "location": "CBG, UK"
-    },
-    {
-        "title": "ROLE",
-        "company": "COMPANY NAME",
-        "duration": "FROM - TO",
-        "location": "CBG, UK"
-    },
-    {
-        "title": "ROLE",
-        "company": "COMPANY NAME",
-        "duration": "FROM - TO",
-        "location": "HNVR, DE"
-    }
-]
 
 /* Content for the whois command. Designed to be a string of any length */
-const whoisContent = "<p>Hallo. Ich bin Nele. Ich bin Bildungswissenschaftlerin und arbeite in dem von mir gegründeten eBildungslabor. Dies ist eine Initiative zur Unterstützung zeitgemäßer Bildung.</p>"
+const werContent = "<p>Hallo. Ich bin Nele. Ich bin Bildungswissenschaftlerin und arbeite in dem von mir gegründeten eBildungslabor. Dies ist eine Initiative zur Unterstützung zeitgemäßer Bildung.</p>"
 
-const githubContent = "<p>- 🖥️ Remixe Dir Deine eigene Website 🎉 -</p>" +
+const remixContent = "<p>- 🖥️ Remixe Dir Deine eigene Website 🎉 -</p>" +
   "<p>Miniterm ist ein Open-Source Projekt von thomaskr. Du kannst es für Dich weiternutzen!</p>" +
   "<p>" +
   "<a href=\"https://github.com/thmsrmbld/miniterm\"target=\"_blank\">" +
@@ -437,7 +362,7 @@ const mockLogin = () => {
 const mockCommands = () => {
     /* Micro function for showing which commands are available, called on
      first page load timer */
-    const instructionText = "- 💻 'ls' lists valid commands. ⬆️ & ⬇️ arrows" +
+    const instructionText = "- 💻 tippe 'hilfe', um mögliche Befehle angezeigt zu bekommen. Navigiere mit ⬆️ & ⬇️ Pfeilen" +
       " cycle command history -"
     document.getElementsByClassName("command-list")[0].innerHTML = instructionText
 }
