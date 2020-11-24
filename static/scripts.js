@@ -14,24 +14,24 @@ let manTableCount = expTableCount = skiTableCount = 0
 /* A structure of system commands used for the man pages and valid command list */
 const commandData = [
     {
-        "name": "ls",
-        "description": "Lists the valid commands that the terminal will accept. Try some out!"
+        "name": "hilfe",
+        "description": "Zeigt alle hier möglichen Befehle an. Probiere sie aus!"
     },
     {
-        "name": "whois",
-        "description": "The whois utility lists general information."
+        "name": "wer",
+        "description": "Informationen über mich."
     },
     {
-        "name": "skills",
-        "description": "The skills utility lists skills information."
+        "name": "warum",
+        "description": "Begründung für meine Aktivitäten."
     },
     {
         "name": "experience",
         "description": "The experience lists professional experience."
     },
     {
-        "name": "github",
-        "description": "Provides a link to the source code for this project."
+        "name": "remix",
+        "description": "Link zum Quellcode dieses Projekts für Remix."
     },
     {
         "name": "uptime",
@@ -52,12 +52,12 @@ const commandData = [
         "description": "The clear utility clears all previous command output and resets the terminal session."
     },
     {
-        "name": "contact",
-        "description": "The contact utility provides a contact email address."
+        "name": "kontakt",
+        "description": "Zeigt eine Kontaktmöglichkeit an."
     },
     {
         "name": "exit",
-        "description": "The exit utility leaves the terminal session."
+        "description": "Beendet die aktuelle Sitzung."
     }
 ]
 
@@ -128,10 +128,10 @@ const experienceData = [
 ]
 
 /* Content for the whois command. Designed to be a string of any length */
-const whoisContent = "<p>WHOIS CONTENT HERE</p>"
+const whoisContent = "<p>Hallo. Ich bin Nele. Ich bin Bildungswissenschaftlerin und arbeite in dem von mir gegründeten eBildungslabor. Dies ist eine Initiative zur Unterstützung zeitgemäßer Bildung.</p>"
 
-const githubContent = "<p>- 🖥️ MINITERM ON GITHUB 🎉 -</p>" +
-  "<p>Miniterm is an open-source project by thomaskr. Get your own, today!</p>" +
+const githubContent = "<p>- 🖥️ Remixe Dir Deine eigene Website 🎉 -</p>" +
+  "<p>Miniterm ist ein Open-Source Projekt von thomaskr. Du kannst es für Dich weiternutzen!</p>" +
   "<p>" +
   "<a href=\"https://github.com/thmsrmbld/miniterm\"target=\"_blank\">" +
   "miniterm.github</a>" +
@@ -207,7 +207,7 @@ const commandListener = () => {
                     contactPrinter()
                     break
                 case "exit":
-                    window.open("https://blacklivesmatter.com/")
+                    window.open("https://ebildungslabor.de/")
                     break
                 case "experience":
                     experiencePrinter(experienceData)
@@ -219,7 +219,7 @@ const commandListener = () => {
                 case "history":
                     historyPrinter(terminalHistoryLog)
                     break
-                case "ls":
+                case "hilfe":
                 case "help":
                     commandPrinter(commandData)
                     break
@@ -232,7 +232,7 @@ const commandListener = () => {
                 case "uptime":
                     uptimePrinter()
                     break
-                case "whois":
+                case "wer":
                     whoisPrinter()
                     break
                 default:
