@@ -23,7 +23,7 @@ const commandData = [
     },
     {
         "name": "warum",
-        "description": "Begründung für meine Aktivitäten."
+        "description": "Begründung für dieses Projekt."
     },
    
     {
@@ -52,15 +52,17 @@ const commandData = [
 
 
 
-/* Content for the whois command. Designed to be a string of any length */
 const werContent = "<p>Hallo. Ich bin Nele. Ich bin Bildungswissenschaftlerin und arbeite in dem von mir gegründeten eBildungslabor. Dies ist eine Initiative zur Unterstützung zeitgemäßer Bildung.</p>"
 
 const remixContent = "<p>- 🖥️ Remixe Dir Deine eigene Website 🎉 -</p>" +
-  "<p>Miniterm ist ein Open-Source Projekt von thomaskr. Du kannst es für Dich weiternutzen!</p>" +
+  "<p>Miniterm ist ein Open-Source Projekt von thomaskr, das ich hier für mch umgestaltet und angepasst habe. Du kannst es für Dich ebenfalls ganz einfach weiternutzen!</p>" +
   "<p>" +
   "<a href=\"https://github.com/thmsrmbld/miniterm\"target=\"_blank\">" +
   "miniterm.github</a>" +
   "</p>"
+
+const warumContent = "<p>Dieses Projekt ist nur eine kleine Spielerei, um ein paar Infos von sich im Hacker-Terminal-Style' zu veröffentlichen. Und das Schöne daran ist, dass es sich ganz einfach remixen lässt. Tippe 'remix', um zum Quellcode zu gelangen.</p>"
+
 
 const initialisePage = () => {
     /* Initialises the page. We just sequentially load in the initial page
@@ -128,37 +130,34 @@ const commandListener = () => {
                 case "clear":
                     clearTerminal()
                     break
-                case "contact":
-                    contactPrinter()
+                case "kontakt":
+                    kontaktPrinter()
                     break
                 case "exit":
                     window.open("https://ebildungslabor.de/")
                     break
-                case "experience":
-                    experiencePrinter(experienceData)
-                    break
+           
                 case "miniterm":
                 case "github":
-                    githubPrinter()
+                      case "remix":
+                    remixPrinter()
                     break
-                case "history":
-                    historyPrinter(terminalHistoryLog)
+                case "verlauf":
+                    verlaufPrinter(terminalHistoryLog)
                     break
                 case "hilfe":
                 case "help":
-                    commandPrinter(commandData)
+                    hilfePrinter(commandData)
                     break
                 case "man":
-                    manPrinter(commandData)
+                    hilfePrinter(commandData)
                     break
-                case "skills":
-                    skillsPrinter(skillsData)
+                case "warum":
+                    warumPrinter(skillsData)
                     break
-                case "uptime":
-                    uptimePrinter()
-                    break
+       
                 case "wer":
-                    whoisPrinter()
+                    werPrinter()
                     break
                 default:
                     /* Otherwise, the command doesn't exist */
@@ -197,61 +196,7 @@ const uptimePrinter = () => {
     siteContainer.insertBefore(uptimeDiv, currentTerminalDiv)
 }
 
-const skillsPrinter = (skillsData) => {
-    /* Prints a list of skills to screen */
-    skiTableCount += 1
 
-    /* Build title */
-    let skillsStart = document.createElement("div")
-    skillsStart.setAttribute("class", "ag output-row")
-    skillsStart.innerHTML = " --- SKILLS --- "
-    siteContainer.insertBefore(skillsStart, currentTerminalDiv)
-
-    /* Build table */
-    let skillsTable = document.createElement("table")
-    skillsTable.setAttribute("class", "skTb" + skiTableCount + " ag skTable" +
-      " output-row")
-    siteContainer.insertBefore(skillsTable, currentTerminalDiv)
-
-    let skTable = document.getElementsByClassName("skTb" + skiTableCount)[0]
-    let tdData = Object.keys(skillsData)
-    generateTable(skTable, skillsData)
-}
-
-const generateTable = (table, data) => {
-    /* Generic table generator for tabular data,
-    consumes a data structure and spits out a HTML table.*/
-    for (let element of data) {
-        let row = table.insertRow()
-
-        for (let key in element) {
-            let cell = row.insertCell()
-            let textContent = document.createTextNode(element[key])
-            cell.appendChild(textContent)
-        }
-    }
-}
-
-const experiencePrinter = (experienceData) => {
-    /* Prints work experiences to the screen. */
-    expTableCount += 1
-
-    /* Build title */
-    let expStart = document.createElement("div")
-    expStart.setAttribute("class", "ag output-row")
-    expStart.innerHTML = " --- EXPERIENCE --- "
-    siteContainer.insertBefore(expStart, currentTerminalDiv)
-
-    /* Build table */
-    let expTable = document.createElement("table")
-    expTable.setAttribute("class", "exTb" + expTableCount + " ag exTable" +" output-row")
-    siteContainer.insertBefore(expTable, currentTerminalDiv)
-
-    let exTable = document.getElementsByClassName("exTb" + expTableCount)[0]
-    let tdData = Object.keys(experienceData[0])
-    generateTable(exTable, experienceData)
-    siteContainer.insertBefore(exTable, currentTerminalDiv)
-}
 
 const manPrinter = (commandData) => {
     /* Prints man-pages to screen */
@@ -275,12 +220,12 @@ const manPrinter = (commandData) => {
     siteContainer.insertBefore(mnTable, currentTerminalDiv)
 }
 
-const whoisPrinter = () => {
+const werPrinter = () => {
     /* Prints 'whois' details to screen */
-    let whoisDiv = document.createElement("p")
-    whoisDiv.innerHTML = whoisContent
-    whoisDiv.setAttribute("class", "ag output-row")
-    siteContainer.insertBefore(whoisDiv, currentTerminalDiv)
+    let werDiv = document.createElement("p")
+    werDiv.innerHTML = werContent
+    werDiv.setAttribute("class", "ag output-row")
+    siteContainer.insertBefore(werDiv, currentTerminalDiv)
 }
 
 const githubPrinter = () => {
